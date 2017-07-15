@@ -97,7 +97,8 @@ public class Calculator extends JFrame {
 		btnNum4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				calculatorBox.append("4");
+				calculatorBox.append("4"); 
+				//
 			}
 		});
 		btnNum4.setBounds(21, 166, 42, 34);
