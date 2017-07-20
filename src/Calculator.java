@@ -15,6 +15,7 @@ import java.awt.Color;
 import javax.swing.border.BevelBorder;
 import java.awt.Window.Type;
 import javax.swing.JLabel;
+import java.awt.Component;
 
 public class Calculator extends JFrame {
 
@@ -29,10 +30,12 @@ public class Calculator extends JFrame {
 	private JButton btnEquals;
 	public int decDecider = 0; 
 	private JLabel binaryNum;
+	private JLabel hexNum;
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -167,6 +170,7 @@ public class Calculator extends JFrame {
 			    decDecider= 0; 
 				Num = 0; 
 				 binaryNum.setText("...");
+				 hexNum.setText("...");
 				calculatorBox.setText(null);
 				 
 			}
@@ -242,9 +246,10 @@ public class Calculator extends JFrame {
 					calculatorBox.setText(result);
 			    }
 			    int roundedNum2 = (int) Math.round(Num); 
+			    String hex = Integer.toHexString(roundedNum2);
 			    String bin = Integer.toBinaryString(roundedNum2); 
 			    binaryNum.setText(bin);
-			
+			    hexNum.setText(hex);
 				Num = 0;
 			}
 		});
@@ -342,12 +347,14 @@ public class Calculator extends JFrame {
 		contentPane.add(btnDivide);
 		
 		calculatorBox = new JTextArea();
+		calculatorBox.setText("");
 		calculatorBox.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		calculatorBox.setAutoscrolls(false);
 		calculatorBox.setRows(1);
 		calculatorBox.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		calculatorBox.setEditable(false);
 		calculatorBox.setBounds(21, 23, 254, 34);
+		calculatorBox.setAlignmentX(RIGHT_ALIGNMENT);
 		contentPane.add(calculatorBox);
 		
 		JButton btnDecimal = new JButton(".");
@@ -362,10 +369,21 @@ public class Calculator extends JFrame {
 		btnDecimal.setBounds(181, 211, 42, 34);
 		contentPane.add(btnDecimal);
 		
-		JButton btnM = new JButton("M");
-		btnM.setBackground(new Color(211, 211, 211));
-		btnM.setBounds(233, 211, 42, 34);
-		contentPane.add(btnM);
+		JButton btnSquared = new JButton("\u00B2 ");
+		btnSquared.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0)
+			{
+				String calcNum = calculatorBox.getText(); 
+				double toDouble = Double.parseDouble(calcNum); 
+				
+				double squared = toDouble*toDouble; 
+				String strSquared = Double.toString(squared);
+				calculatorBox.setText(strSquared);
+			}
+		});
+		btnSquared.setBackground(new Color(211, 211, 211));
+		btnSquared.setBounds(233, 211, 42, 34);
+		contentPane.add(btnSquared);
 		
 		JLabel lblBin = new JLabel("BIN:");
 		lblBin.setToolTipText("To generate a binary number, enter the number you want + 0.");
@@ -375,5 +393,14 @@ public class Calculator extends JFrame {
 	    binaryNum = new JLabel("...");
 		binaryNum.setBounds(48, 96, 227, 14);
 		contentPane.add(binaryNum);
+		
+		JLabel lblHex = new JLabel("HEX:");
+		lblHex.setToolTipText("To generate a binary number, enter the number you want + 0.");
+		lblHex.setBounds(21, 79, 31, 14);
+		contentPane.add(lblHex);
+		
+		JLabel hexNum = new JLabel("...");
+		hexNum.setBounds(48, 79, 227, 14);
+		contentPane.add(hexNum);
 	}
 }
