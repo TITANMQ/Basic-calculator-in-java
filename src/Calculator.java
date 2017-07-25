@@ -7,6 +7,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.stream.IntStream;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import java.awt.Font;
@@ -16,9 +17,14 @@ import javax.swing.border.BevelBorder;
 import java.awt.Window.Type;
 import javax.swing.JLabel;
 import java.awt.Component;
+import java.awt.SystemColor;
 
 public class Calculator extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextArea calculatorBox; 
 	public double Num;
@@ -31,6 +37,8 @@ public class Calculator extends JFrame {
 	public int decDecider = 0; 
 	private JLabel binaryNum;
 	private JLabel hexNum;
+	private JLabel CurrentCalculation;
+	private JButton btnC;
 	/**
 	 * Launch the application.
 	 */
@@ -57,6 +65,7 @@ public class Calculator extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 311, 352);
 		contentPane = new JPanel();
+		contentPane.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		contentPane.setBackground(new Color(220, 220, 220));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -66,7 +75,16 @@ public class Calculator extends JFrame {
 		btnNum7.setBackground(new Color(211, 211, 211));
 		btnNum7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
-			{
+			{   
+				if (CurrentCalculation.getText() == null)
+				{
+					CurrentCalculation.setText("7");
+				}
+				else
+				{
+					CurrentCalculation.setText(CurrentCalculation.getText()+"7");
+				}
+				
 				calculatorBox.append("7");
 			}
 		});
@@ -77,8 +95,18 @@ public class Calculator extends JFrame {
 		btnNum8.setBackground(new Color(211, 211, 211));
 		btnNum8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
-			{
-				calculatorBox.append("8");
+			{  
+				
+				if (CurrentCalculation.getText() == null)
+				{
+					CurrentCalculation.setText("8");
+				}
+				else
+				{
+					CurrentCalculation.setText(CurrentCalculation.getText()+"8");
+				}
+				
+				calculatorBox.append("8");  
 			}
 		});
 		btnNum8.setBounds(70, 121, 42, 34);
@@ -88,7 +116,16 @@ public class Calculator extends JFrame {
 		btnNum9.setBackground(new Color(211, 211, 211));
 		btnNum9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
-			{
+			{   
+				if (CurrentCalculation.getText() == null)
+				{
+					CurrentCalculation.setText("9");
+				}
+				else
+				{
+					CurrentCalculation.setText(CurrentCalculation.getText()+"9");
+				}
+				
 				calculatorBox.append("9");
 			}
 		});
@@ -99,7 +136,16 @@ public class Calculator extends JFrame {
 		btnNum4.setBackground(new Color(211, 211, 211));
 		btnNum4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
-			{
+			{   
+				if (CurrentCalculation.getText() == null)
+				{
+					CurrentCalculation.setText("4");
+				}
+				else
+				{
+					CurrentCalculation.setText(CurrentCalculation.getText()+"4");
+				}
+				
 				calculatorBox.append("4"); 
 				//
 			}
@@ -111,7 +157,16 @@ public class Calculator extends JFrame {
 		btnNum5.setBackground(new Color(211, 211, 211));
 		btnNum5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
-			{
+			{   
+				if (CurrentCalculation.getText() == null)
+				{
+					CurrentCalculation.setText("5");
+				}
+				else
+				{
+					CurrentCalculation.setText(CurrentCalculation.getText()+"5");
+				}
+				
 				calculatorBox.append("5");
 			}
 		});
@@ -122,7 +177,16 @@ public class Calculator extends JFrame {
 		btnNum6.setBackground(new Color(211, 211, 211));
 		btnNum6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
-			{
+			{   
+				if (CurrentCalculation.getText() == null)
+				{
+					CurrentCalculation.setText("6");
+				}
+				else
+				{
+					CurrentCalculation.setText(CurrentCalculation.getText()+"6");
+				}
+				
 				calculatorBox.append("6");
 			}
 		});
@@ -133,7 +197,16 @@ public class Calculator extends JFrame {
 		btnNum1.setBackground(new Color(211, 211, 211));
 		btnNum1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
-			{
+			{   
+				if (CurrentCalculation.getText() == null)
+				{
+					CurrentCalculation.setText("1");
+				}
+				else
+				{
+					CurrentCalculation.setText(CurrentCalculation.getText()+"1");
+				}
+				
 				calculatorBox.append("1");
 			}
 		});
@@ -144,7 +217,16 @@ public class Calculator extends JFrame {
 		btnNum2.setBackground(new Color(211, 211, 211));
 		btnNum2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
-			{
+			{   
+				if (CurrentCalculation.getText() == null)
+				{
+					CurrentCalculation.setText("2");
+				}
+				else
+				{
+					CurrentCalculation.setText(CurrentCalculation.getText()+"2");
+				}
+				
 				calculatorBox.append("2");
 			}
 		});
@@ -155,9 +237,18 @@ public class Calculator extends JFrame {
 		btnNum3.setBackground(new Color(211, 211, 211));
 		btnNum3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
-			{
-				calculatorBox.append("3");
-			}
+			{   	
+			  if (CurrentCalculation.getText() == null)
+			  {
+				  CurrentCalculation.setText("3");
+			  }
+			  else
+			  {
+				  CurrentCalculation.setText(CurrentCalculation.getText()+"3");
+			  }
+			
+				  calculatorBox.append("3");
+			  }
 		});
 		btnNum3.setBounds(119, 211, 42, 34);
 		contentPane.add(btnNum3);
@@ -170,8 +261,10 @@ public class Calculator extends JFrame {
 			    decDecider= 0; 
 				Num = 0; 
 				 binaryNum.setText("...");
-				 hexNum.setText("...");
-				calculatorBox.setText(null);
+				 //hexNum.setText("...");
+				calculatorBox.setText(null); 
+				CurrentCalculation.setText(""); 
+				
 				 
 			}
 		});
@@ -183,19 +276,46 @@ public class Calculator extends JFrame {
 		btnNum0.setBackground(new Color(211, 211, 211));
 		btnNum0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
-			{
-				calculatorBox.append("0");
+			{   
+				  if (CurrentCalculation.getText() == null)
+				  {
+					  CurrentCalculation.setText("0");
+				  }
+				  else
+				  {
+					  CurrentCalculation.setText(CurrentCalculation.getText()+"0");
+				  }
+				
+				 calculatorBox.append("0");
 			}
 		});
 		btnNum0.setBounds(70, 256, 42, 34);
 		contentPane.add(btnNum0);
 		
-		JButton btnC = new JButton("C");
-		btnC.setToolTipText("Clears current values on the screen");
+		JButton btnC = new JButton("<");
+		btnC.setToolTipText("Deletes the last character");
 		btnC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{   decDecider = 0;
-				calculatorBox.setText(null);
+			
+				//deletes calculatorBox chars
+                String cbText = calculatorBox.getText();
+				
+				StringBuilder sb1 = new StringBuilder(cbText);
+				int lengthofChars = cbText.length();
+				
+			    sb1.deleteCharAt(lengthofChars - 1);
+			     calculatorBox.setText(sb1.toString());
+			     
+			     
+				//deletes label chars
+				String ccText = CurrentCalculation.getText();
+				
+				StringBuilder sb2 = new StringBuilder(ccText);
+				int length = ccText.length();
+				
+			    sb2.deleteCharAt(length - 1);
+			    CurrentCalculation.setText(sb2.toString());
 				
 				
 				
@@ -243,13 +363,14 @@ public class Calculator extends JFrame {
 			    {
 			    	int roundedNum = (int) Math.round(Num);
 			    	String result = Integer.toString(roundedNum); 
-					calculatorBox.setText(result);
+					calculatorBox.setText(result); 
+					//CurrentCalculation.setText(CurrentCalculation.getText()+"= "+ result);
 			    }
 			    int roundedNum2 = (int) Math.round(Num); 
-			    String hex = Integer.toHexString(roundedNum2);
+			   // String hex = Integer.toHexString(roundedNum2); currently unavailable at this time
 			    String bin = Integer.toBinaryString(roundedNum2); 
 			    binaryNum.setText(bin);
-			    hexNum.setText(hex);
+			    //hexNum.setText(hex);
 				Num = 0;
 			}
 		});
@@ -266,11 +387,13 @@ public class Calculator extends JFrame {
 				double toDouble = Double.parseDouble(calcNum);
 				if(Num == 0)
 				{
-					Num += toDouble;
+					Num += toDouble; 
+					CurrentCalculation.setText(CurrentCalculation.getText()+"+");
 				}
 				else
 				{
 					Num += toDouble; 
+					CurrentCalculation.setText(CurrentCalculation.getText()+"+");
 				}
 				  calculatorBox.setText(null);
 			}
@@ -289,10 +412,12 @@ public class Calculator extends JFrame {
 					if(Num == 0)
 					{
 						Num += toDouble;
+						CurrentCalculation.setText(CurrentCalculation.getText()+"-");
 					}
 					else
 					{
 						Num -= toDouble; 
+						CurrentCalculation.setText(CurrentCalculation.getText()+"-");
 					}
 					  calculatorBox.setText(null);
 			}
@@ -311,10 +436,12 @@ public class Calculator extends JFrame {
 				if(Num == 0)
 				{
 					Num += toDouble;
+					CurrentCalculation.setText(CurrentCalculation.getText()+"x");
 				}
 				else
 				{
 					Num *= toDouble; 
+					CurrentCalculation.setText(CurrentCalculation.getText()+"x");
 				}
 				  
 				  calculatorBox.setText(null);
@@ -335,10 +462,13 @@ public class Calculator extends JFrame {
 					if(Num == 0)
 					{
 						Num += toDouble;
+						CurrentCalculation.setText(CurrentCalculation.getText()+"÷");
 					}
 					else
 					{
 						Num /= toDouble; 
+						CurrentCalculation.setText(CurrentCalculation.getText()+"÷");
+						 
 					}
 			  calculatorBox.setText(null);
 			}
@@ -363,6 +493,7 @@ public class Calculator extends JFrame {
 			{   
 				decDecider = 1;
 				calculatorBox.append(".");
+				CurrentCalculation.setText(CurrentCalculation.getText()+".");
 			}
 		});
 		btnDecimal.setBackground(new Color(211, 211, 211));
@@ -372,13 +503,15 @@ public class Calculator extends JFrame {
 		JButton btnSquared = new JButton("\u00B2 ");
 		btnSquared.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
-			{
+			{   
+				CurrentCalculation.setText(CurrentCalculation.getText()+"²");
 				String calcNum = calculatorBox.getText(); 
 				double toDouble = Double.parseDouble(calcNum); 
 				
 				double squared = toDouble*toDouble; 
 				String strSquared = Double.toString(squared);
-				calculatorBox.setText(strSquared);
+				calculatorBox.setText(strSquared); 
+				
 			}
 		});
 		btnSquared.setBackground(new Color(211, 211, 211));
@@ -395,6 +528,7 @@ public class Calculator extends JFrame {
 		contentPane.add(binaryNum);
 		
 		JLabel lblHex = new JLabel("HEX:");
+		lblHex.setVisible(false);
 		lblHex.setToolTipText("To generate a binary number, enter the number you want + 0.");
 		lblHex.setBounds(21, 79, 31, 14);
 		contentPane.add(lblHex);
@@ -402,5 +536,11 @@ public class Calculator extends JFrame {
 		JLabel hexNum = new JLabel("...");
 		hexNum.setBounds(48, 79, 227, 14);
 		contentPane.add(hexNum);
+		
+		CurrentCalculation = new JLabel("");
+		CurrentCalculation.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		CurrentCalculation.setBackground(SystemColor.controlLtHighlight);
+		CurrentCalculation.setBounds(21, 11, 254, 14);
+		contentPane.add(CurrentCalculation);
 	}
 }
